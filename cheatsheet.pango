@@ -1,6 +1,4 @@
-<span size="xx-large" weight="bold">Sway Commands</span>
-<tt>
-Keybinding         Action
+<tt>Keybinding         Action
 -----------------  -----------------------
 Mod+Enter          Open terminal
 Mod+d              App launcher (dmenu)

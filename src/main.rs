@@ -70,16 +70,31 @@ fn main() -> glib::ExitCode {
 fn load_css(style_path: &PathBuf) {
     info!("=== Loading CSS ===");
     info!("CSS file path: {}", style_path.display());
-    // Load the CSS file and add it to the provider
+    info!("CSS file exists: {}", style_path.exists());
+    
     let provider = CssProvider::new();
-    provider.load_from_string(style_path.to_str().unwrap_or(""));
-
-    // Add the provider to the default screen
-    gtk::style_context_add_provider_for_display(
-        &Display::default().expect("Could not connect to a display."),
-        &provider,
-        gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
-    );
+    
+    match fs::read_to_string(style_path) {
+        Ok(css_content) => {
+            info!("Successfully loaded CSS file ({} bytes)", css_content.len());
+            debug!("CSS content preview: {}", &css_content[..css_content.len().min(200)]);
+            
+            provider.load_from_string(&css_content);
+            info!("CSS loaded successfully");
+            
+            // Add the provider to the default screen
+            gtk::style_context_add_provider_for_display(
+                &Display::default().expect("Could not connect to a display."),
+                &provider,
+                gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
+            );
+            info!("CSS provider added to display");
+        }
+        Err(e) => {
+            error!("Failed to read CSS file '{}': {}", style_path.display(), e);
+            warn!("Continuing without custom CSS");
+        }
+    }
 }
 
 fn build_ui(app: &Application, file_path: &PathBuf) {

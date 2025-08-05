@@ -12,12 +12,11 @@ This project is a learning tool to explore writing custom Wayland overlay applic
 - [x] Launch using a custom keybinding (e.g. `Mod+Space`)
 - [x] Float above all windows without stealing focus
 - [x] Lightweight and fast startup
-- ✅ Close with a keypress (e.g. `ESC`)
-- ✅ Use modern Wayland protocols (no XWayland dependencies)
+- [x] Close with a keypress (e.g. `ESC`)
 
 ---
 
-## 🧰 Implementation Notes
+## 🧰 Implementation Notes 
 
 This app will likely be implemented using:
 
