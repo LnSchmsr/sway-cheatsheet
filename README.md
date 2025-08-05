@@ -6,7 +6,7 @@ It displays keboard shortcuts and comma`d referenes in a floating panel. Buitl w
 
 ---
 
-## � Requirements
+## Requirements
 
 ### System Dependencies
 - **Wayland compositor** (Sway, Hyprland, etc.)
@@ -25,7 +25,7 @@ sudo apt install libgtk-4-dev libgtk4-layer-shell-dev build-essential rustc carg
 
 ---
 
-## 🚀 Installation & Usage
+## Installation & Usage
 
 ### Building from Source
 ```bash
@@ -62,7 +62,7 @@ bindsym $mod+F1 exec /path/to/sway-cheatsheet/launch-cheatsheet-with-logs.sh
 
 ---
 
-## 📁 Configuration
+## Configuration
 
 ### Cheatsheet Content (`cheatsheet.pango`)
 The cheatsheet uses Pango markup for rich text formatting:
@@ -91,7 +91,7 @@ box {
 
 ---
 
-## 🎯 Command Line Options
+## Command Line Options
 
 ```bash
 Usage: sway-cheatsheet [OPTIONS]
@@ -105,14 +105,14 @@ Options:
 
 ---
 
-## 🛣️ Future Ideas
+## Future Ideas
 
 - [ ] Dynamic cheatsheets depending on context (Neovim, Tmux, etc.)
 - [ ] Multi-panel support for different categories
 
 ---
 
-## � Development
+## Development
 
 ### Debugging
 ```bash
